@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 class FaceOutlinePainter extends CustomPainter {
   @override
@@ -43,12 +45,23 @@ class Sky extends CustomPainter {
     final paint = Paint()
       ..style = PaintingStyle.fill
       ..strokeWidth = 4.0
-      ..color = Colors.lightBlue;
+      ..color = Colors.orange;
 
     canvas.drawRect(const Offset(0, 0) & size, paint);
     paint.color = Colors.white;
     paint.style = PaintingStyle.stroke;
     canvas.drawRect(const Offset(5, 5) & Size(size.width-10, size.height-10), paint);
+    canvas.drawLine(Offset(5, 5) , Offset(56, 75) , paint);
+    canvas.drawLine(Offset(56, 75) , Offset(0, 75) , paint);
+    paint.style = PaintingStyle.fill;
+    canvas.drawCircle(Offset(200, 5) , 40, paint);
+    canvas.drawCircle(Offset(200, 100) , 40, paint);
+    paint.color = Colors.blue;
+    canvas.drawCircle(Offset(200, 200) , 40, paint);
+    paint.color = Colors.red;
+
+    List<Offset> offsetList = [Offset(100, 275), Offset(200, 375), Offset(300, 275), Offset(100,275)];
+    canvas.drawPoints(PointMode.lines, offsetList, paint);
   }
 
   @override
